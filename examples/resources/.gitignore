@@ -6,6 +6,10 @@ models/*.pd*
 models/*.engine
 models/*.trt
 models/*.nb
+models/*param*
+models/*model*
+models/*yml*
 outputs/*.jpg
 outputs/*.jpeg
 outputs/*.png
+outputs/*.txt
