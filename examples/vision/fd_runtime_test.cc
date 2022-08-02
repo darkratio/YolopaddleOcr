@@ -179,13 +179,19 @@ int main(int argc, char* argv[]) {
   std::string tensor_path = "../resources/outputs/tensor_pdi.txt";
 #endif
 
+  int CPU_NUM_THRADS = 1;
+  if (argc > 2) {
+    CPU_NUM_THRADS = atoi(argv[2]);
+  }
+  std::cout << "--- CPU_NUM_THRADS: " << CPU_NUM_THRADS << std::endl;
+
   // setup option
   fd::RuntimeOption runtime_option;
   runtime_option.SetModelPath(model_file, params_file, "paddle");
   runtime_option.UseCpu();
   // runtime_option.UseOrtBackend(); // paddle2onnx -> ORT
   runtime_option.UsePaddleBackend();  // Paddle Inference
-  runtime_option.SetCpuThreadNum(1);
+  runtime_option.SetCpuThreadNum(CPU_NUM_THRADS);
   // init runtime
   std::unique_ptr<fd::Runtime> runtime =
       std::unique_ptr<fd::Runtime>(new fd::Runtime());
@@ -258,7 +264,7 @@ int main(int argc, char* argv[]) {
   }
 
   // repeat testing
-  size_t REPEATS = 100;
+  size_t REPEATS = 1000;
   if (argc > 1) {
     REPEATS = atoi(argv[1]);
   }
