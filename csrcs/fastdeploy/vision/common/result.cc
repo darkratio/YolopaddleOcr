@@ -140,11 +140,24 @@ std::string FaceDetectionResult::Str() {
 }
 
 void SegmentationResult::Clear() {
-  std::vector<std::vector<int64_t>>().swap(masks);
+  std::vector<uint8_t>().swap(label_map);
+  std::vector<float>().swap(score_map);
+  std::vector<int64_t>().swap(shape);
+  contain_score_map = false;
 }
 
-void SegmentationResult::Resize(int64_t height, int64_t width) {
-  masks.resize(height, std::vector<int64_t>(width));
+void SegmentationResult::Reserve(int size) {
+  label_map.reserve(size);
+  if (contain_score_map > 0) {
+    score_map.reserve(size);
+  }
+}
+
+void SegmentationResult::Resize(int size) {
+  label_map.resize(size);
+  if (contain_score_map) {
+    score_map.resize(size);
+  }
 }
 
 std::string SegmentationResult::Str() {
@@ -153,11 +166,62 @@ std::string SegmentationResult::Str() {
   for (size_t i = 0; i < 10; ++i) {
     out += "[";
     for (size_t j = 0; j < 10; ++j) {
-      out = out + std::to_string(masks[i][j]) + ", ";
+      out = out + std::to_string(label_map[i * 10 + j]) + ", ";
     }
     out += ".....]\n";
   }
   out += "...........\n";
+  if (contain_score_map) {
+    out += "SegmentationResult Score map 10 rows x 10 cols: \n";
+    for (size_t i = 0; i < 10; ++i) {
+      out += "[";
+      for (size_t j = 0; j < 10; ++j) {
+        out = out + std::to_string(score_map[i * 10 + j]) + ", ";
+      }
+      out += ".....]\n";
+    }
+    out += "...........\n";
+  }
+  out += "result shape is: [" + std::to_string(shape[0]) + " " +
+         std::to_string(shape[1]) + "]";
+  return out;
+}
+
+FaceRecognitionResult::FaceRecognitionResult(const FaceRecognitionResult& res) {
+  embedding.assign(res.embedding.begin(), res.embedding.end());
+}
+
+void FaceRecognitionResult::Clear() { std::vector<float>().swap(embedding); }
+
+void FaceRecognitionResult::Reserve(int size) { embedding.reserve(size); }
+
+void FaceRecognitionResult::Resize(int size) { embedding.resize(size); }
+
+std::string FaceRecognitionResult::Str() {
+  std::string out;
+  out = "FaceRecognitionResult: [";
+  size_t numel = embedding.size();
+  if (numel <= 0) {
+    return out + "Empty Result]";
+  }
+  // max, min, mean
+  float min_val = embedding.at(0);
+  float max_val = embedding.at(0);
+  float total_val = embedding.at(0);
+  for (size_t i = 1; i < numel; ++i) {
+    float val = embedding.at(i);
+    total_val += val;
+    if (val < min_val) {
+      min_val = val;
+    }
+    if (val > max_val) {
+      max_val = val;
+    }
+  }
+  float mean_val = total_val / static_cast<float>(numel);
+  out = out + "Dim(" + std::to_string(numel) + "), " + "Min(" +
+        std::to_string(min_val) + "), " + "Max(" + std::to_string(max_val) +
+        "), " + "Mean(" + std::to_string(mean_val) + ")]\n";
   return out;
 }
 

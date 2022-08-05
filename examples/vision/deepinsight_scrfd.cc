@@ -13,27 +13,27 @@
 // limitations under the License.
 
 #include "fastdeploy/vision.h"
-
 int main() {
   namespace vis = fastdeploy::vision;
 
-  std::string model_file = "ppyoloe_crn_l_300e_coco/model.pdmodel";
-  std::string params_file = "ppyoloe_crn_l_300e_coco/model.pdiparams";
-  std::string config_file = "ppyoloe_crn_l_300e_coco/infer_cfg.yml";
-  std::string img_path = "000000014439_640x640.jpg";
-  std::string vis_path = "vis.jpeg";
+  std::string model_file = "../resources/models/SCRFD.onnx";
+  std::string img_path = "../resources/images/test_face_det.jpg";
+  std::string vis_path = "../resources/outputs/deepsight_scrfd_vis_result.jpg";
 
-  auto model = vis::ppdet::PPYOLOE(model_file, params_file, config_file);
+  auto model = vis::deepinsight::SCRFD(model_file);
+  model.size = {640, 640};  // (width, height)
   if (!model.Initialized()) {
-    std::cerr << "Init Failed." << std::endl;
+    std::cerr << "Init Failed! Model: " << model_file << std::endl;
     return -1;
+  } else {
+    std::cout << "Init Done! Model:" << model_file << std::endl;
   }
+  model.EnableDebug();
 
   cv::Mat im = cv::imread(img_path);
   cv::Mat vis_im = im.clone();
-
-  vis::DetectionResult res;
-  if (!model.Predict(&im, &res)) {
+  vis::FaceDetectionResult res;
+  if (!model.Predict(&im, &res, 0.3f, 0.3f)) {
     std::cerr << "Prediction Failed." << std::endl;
     return -1;
   } else {
@@ -44,7 +44,7 @@ int main() {
   std::cout << res.Str() << std::endl;
 
   // 可视化预测结果
-  vis::Visualize::VisDetection(&vis_im, res);
+  vis::Visualize::VisFaceDetection(&vis_im, res, 2, 0.3f);
   cv::imwrite(vis_path, vis_im);
   std::cout << "Detect Done! Saved: " << vis_path << std::endl;
   return 0;
