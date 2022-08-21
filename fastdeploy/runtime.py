@@ -13,13 +13,14 @@
 # limitations under the License.
 from __future__ import absolute_import
 import logging
-from . import fastdeploy_main as C
+from . import c_lib_wrap as C
 
 
 class Runtime:
     def __init__(self, runtime_option):
         self._runtime = C.Runtime()
-        assert self._runtime.init(runtime_option), "Initialize Runtime Failed!"
+        assert self._runtime.init(
+            runtime_option._option), "Initialize Runtime Failed!"
 
     def infer(self, data):
         assert isinstance(data, dict), "The input data should be type of dict."
@@ -80,6 +81,12 @@ class RuntimeOption:
 
     def disable_paddle_mkldnn(self):
         return self._option.disable_paddle_mkldnn()
+
+    def enable_paddle_log_info(self):
+        return self._option.enable_paddle_log_info()
+
+    def disable_paddle_log_info(self):
+        return self._option.disable_paddle_log_info()
 
     def set_paddle_mkldnn_cache_size(self, cache_size):
         return self._option.set_paddle_mkldnn_cache_size(cache_size)

@@ -13,7 +13,7 @@
 # limitations under the License.
 from __future__ import absolute_import
 import logging
-from . import fastdeploy_main as C
+from . import c_lib_wrap as C
 
 
 class FastDeployModel:
@@ -44,6 +44,15 @@ class FastDeployModel:
         ), "The index:{} must be less than number of outputs:{}.".format(
             index, self.num_outputs())
         return self._model.get_output_info(index)
+
+    def enable_record_time_of_runtime(self):
+        self._model.enable_record_time_of_runtime()
+
+    def disable_record_time_of_runtime(self):
+        self._model.disable_record_time_of_runtime()
+
+    def print_statis_info_of_runtime(self):
+        self._model.print_statis_info_of_runtime()
 
     @property
     def runtime_option(self):

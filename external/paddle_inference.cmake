@@ -32,14 +32,12 @@ if(WIN32)
   set(PADDLEINFERENCE_COMPILE_LIB
       "${PADDLEINFERENCE_INSTALL_DIR}/paddle/lib/paddle_inference.lib"
       CACHE FILEPATH "paddle_inference compile library." FORCE)
-  set(DNNL_LIB "")
-  set(OMP_LIB "")
+  set(DNNL_LIB "${PADDLEINFERENCE_INSTALL_DIR}/third_party/install/mkldnn/lib/mkldnn.lib")
+  set(OMP_LIB "${PADDLEINFERENCE_INSTALL_DIR}/third_party/install/mklml/lib/libiomp5md.lib")
 elseif(APPLE)
   set(PADDLEINFERENCE_COMPILE_LIB
       "${PADDLEINFERENCE_INSTALL_DIR}/paddle/lib/libpaddle_inference.dylib"
       CACHE FILEPATH "paddle_inference compile library." FORCE)
-  set(DNNL_LIB "")
-  set(OMP_LIB "")
 else()
   set(PADDLEINFERENCE_COMPILE_LIB
       "${PADDLEINFERENCE_INSTALL_DIR}/paddle/lib/libpaddle_inference.so"
@@ -49,13 +47,16 @@ else()
 endif(WIN32)
 
 set(PADDLEINFERENCE_URL_BASE "https://bj.bcebos.com/paddle2onnx/libs/")
-set(PADDLEINFERENCE_VERSION "2.3.1")
+set(PADDLEINFERENCE_VERSION "2.3.2")
 if(WIN32)
-  message(FATAL_ERROR "Paddle Backend doesn't support Windows now.")
-  set(PADDLEINFERENCE_FILE "paddle_inference-win-x64-${PADDLEINFERENCE_VERSION}.zip")
+  if (WITH_GPU)
+    set(PADDLEINFERENCE_FILE "paddle_inference-win-x64-gpu-${PADDLEINFERENCE_VERSION}.zip")
+  else()
+    set(PADDLEINFERENCE_FILE "paddle_inference-win-x64-${PADDLEINFERENCE_VERSION}.zip")
+  endif()  
 elseif(APPLE)
-  message(FATAL_ERROR "Paddle Backend doesn't support Mac OSX now.")
   if(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "arm64")
+    message(FATAL_ERROR "Paddle Backend doesn't support Mac OSX with Arm64 now.")
     set(PADDLEINFERENCE_FILE "paddle_inference-osx-arm64-${PADDLEINFERENCE_VERSION}.tgz")
   else()
     set(PADDLEINFERENCE_FILE "paddle_inference-osx-x86_64-${PADDLEINFERENCE_VERSION}.tgz")
@@ -91,12 +92,16 @@ set_property(TARGET external_paddle_inference PROPERTY IMPORTED_LOCATION
                                          ${PADDLEINFERENCE_COMPILE_LIB})
 add_dependencies(external_paddle_inference ${PADDLEINFERENCE_PROJECT})
 
-add_library(external_dnnl STATIC IMPORTED GLOBAL)
-set_property(TARGET external_dnnl PROPERTY IMPORTED_LOCATION
-                                         ${DNNL_LIB})
-add_dependencies(external_dnnl ${PADDLEINFERENCE_PROJECT})
+if (NOT APPLE)
+  # no third parties libs(mkldnn and omp) need to 
+  # link into paddle_inference on MacOS OSX.
+  add_library(external_dnnl STATIC IMPORTED GLOBAL)
+  set_property(TARGET external_dnnl PROPERTY IMPORTED_LOCATION
+                                          ${DNNL_LIB})
+  add_dependencies(external_dnnl ${PADDLEINFERENCE_PROJECT})
 
-add_library(external_omp STATIC IMPORTED GLOBAL)
-set_property(TARGET external_omp PROPERTY IMPORTED_LOCATION
-                                         ${OMP_LIB})
-add_dependencies(external_omp ${PADDLEINFERENCE_PROJECT})
+  add_library(external_omp STATIC IMPORTED GLOBAL)
+  set_property(TARGET external_omp PROPERTY IMPORTED_LOCATION
+                                          ${OMP_LIB})
+  add_dependencies(external_omp ${PADDLEINFERENCE_PROJECT})
+endif()
