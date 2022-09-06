@@ -69,7 +69,10 @@
 ```bash
 pip install numpy opencv-python fastdeploy-gpu-python -f https://www.paddlepaddle.org.cn/whl/fastdeploy.html
 ```
-
+##### [Anaconda配置GPU环境(推荐)](docs/quick_start/Python_prebuilt_wheels.md)
+```bash
+conda config --add channels conda-forge && conda install cudatoolkit=11.2 cudnn=8.2
+```
 ##### 安装CPU版本
 
 ```bash
@@ -277,10 +280,10 @@ int main(int argc, char* argv[]) {
 
 <div id="fastdeploy-community"></div>
 
-- **加入社区👬：** 微信扫描二维码后，填写问卷加入交流群，与开发者共同讨论推理部署痛点问题
+- **加入社区👬：** 微信扫描二维码，进入**FastDeploy技术交流群**
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/54695910/175854075-2c0f9997-ed18-4b17-9aaf-1b43266d3996.jpeg"  width = "200" height = "200" />
+<img src="https://user-images.githubusercontent.com/54695910/188544891-0ba025e5-61bd-425e-8097-8e982af9080e.jpeg"  width = "225" height = "288" />
 </div>
 
 ## Acknowledge
