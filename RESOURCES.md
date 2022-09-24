@@ -17,3 +17,12 @@
 ![image](https://user-images.githubusercontent.com/31974251/192097020-979bd7a3-1cdd-4fb5-a931-864c5372933d.png)
 ![image](https://user-images.githubusercontent.com/31974251/192097073-ce5236eb-1ed7-439f-8098-fef7a2d02779.png)
 ![image](https://user-images.githubusercontent.com/31974251/192097122-d675ae39-35fb-4dbb-9c75-eefb0597ec2e.png)
+
+### GPU
+![image](https://user-images.githubusercontent.com/31974251/192098715-354bb022-00c2-4c11-98d5-affdcc945cb2.png)
+![image](https://user-images.githubusercontent.com/31974251/192098907-9dd9a49c-4a3e-4641-8e68-f25da1cafbba.png)
+![image](https://user-images.githubusercontent.com/31974251/192098984-7fefd824-7e3b-4185-abba-bae5d8765e2a.png)
+![image](https://user-images.githubusercontent.com/31974251/192099077-ba5728e8-3bd5-4952-a472-fc9864735d44.png)
+![image](https://user-images.githubusercontent.com/31974251/192099125-81fc8217-e51f-4039-9421-ba7a09c0027c.png)
+![image](https://user-images.githubusercontent.com/31974251/192099254-9f82abb0-8a29-41ce-a0ce-da6aacf23582.png)
+![image](https://user-images.githubusercontent.com/31974251/192099583-300e4680-1089-45cf-afaa-d2afda8fd436.png)
