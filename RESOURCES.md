@@ -65,3 +65,34 @@
 
 ![微信图片_20220925220808](https://user-images.githubusercontent.com/31974251/192147961-ac46d0f6-7349-4126-a123-914af2b63d95.jpg)
 
+###  SDK VS USAGE  
+
+![image](https://user-images.githubusercontent.com/31974251/192813386-cf9a93e0-ee42-42b3-b8bf-d03ae7171d4e.png)
+
+![image](https://user-images.githubusercontent.com/31974251/192816516-a4965b9c-21c9-4a01-bbb2-c648a8256fc9.png)  
+
+![image](https://user-images.githubusercontent.com/31974251/192817382-643c8ca2-1f2a-412e-954e-576c22b4ea62.png)
+
+![image](https://user-images.githubusercontent.com/31974251/192818456-21ca846c-ab52-4001-96d2-77c8174bff6b.png)
+
+![image](https://user-images.githubusercontent.com/31974251/192818918-98d7a54c-4a60-4760-a3cb-ecacc38b7e7a.png)
+
+![微信图片_20220928232558](https://user-images.githubusercontent.com/31974251/192820324-71c40407-d096-4a91-90eb-ce7a378ecce1.jpg)  
+
+![image](https://user-images.githubusercontent.com/31974251/192820573-23096aea-046c-4bb4-9929-c412718805cb.png)  
+
+![image](https://user-images.githubusercontent.com/31974251/192824445-978c06ed-cc14-4d6a-8ccf-d4594ca11533.png)
+
+![image](https://user-images.githubusercontent.com/31974251/192826130-fe28791f-317c-4e66-a6a5-133e60b726f0.png)  
+
+![image](https://user-images.githubusercontent.com/31974251/192826884-44fc84a1-c57a-45f1-8ee2-30b7eaa3dce9.png)
+
+
+![image](https://user-images.githubusercontent.com/31974251/192827608-beb53685-2f94-44dc-aa28-49b09a4ab864.png)
+
+
+![image](https://user-images.githubusercontent.com/31974251/192827842-1f05d435-8a3e-492b-a3b7-d5e88f85f814.png)  
+
+![image](https://user-images.githubusercontent.com/31974251/192829545-3ea36bfc-9a54-492b-984b-2d5d39094d47.png)
+
+
