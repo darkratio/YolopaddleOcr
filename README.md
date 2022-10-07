@@ -282,4 +282,4 @@ Link description: "Model column" will jump to the model inference Demo code
 
 <div id="Yolov7paddleOcr-license"></div>
 
-Yolov7paddleOcr follows [Apache-2.0open source protocol](./LICENSE)。
+FastDeploy is provided under the [Apache-2.0open source protocol](./LICENSE)。
