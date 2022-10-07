@@ -6,13 +6,9 @@
 
 <p align="center">
     <a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-dfd.svg"></a>
-    <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/releases"><img src="https://img.shields.io/github/v/release/PaddlePaddle/Yolov7paddleOcr?color=ffa"></a>
     <a href=""><img src="https://img.shields.io/badge/python-3.7+-aff.svg"></a>
     <a href=""><img src="https://img.shields.io/badge/os-linux%2C%20win%2C%20mac-pink.svg"></a>
-    <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/commits"><img src="https://img.shields.io/github/commit-activity/m/PaddlePaddle/Yolov7paddleOcr?color=3af"></a>
     <a href="https://pypi.org/project/Yolov7paddleOcr-python/"><img src="https://img.shields.io/pypi/dm/Yolov7paddleOcr-python?color=9cf"></a>
-    <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/issues"><img src="https://img.shields.io/github/issues/PaddlePaddle/Yolov7paddleOcr?color=9cc"></a>
-    <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/stargazers"><img src="https://img.shields.io/github/stars/PaddlePaddle/Yolov7paddleOcr?color=ccf"></a>
 </p>
 
 **⚡️Yolov7paddleOcr is an **easy-to-use and efficient** inference deployment development kit. Covers the industry 🔥** popular AI models** and provides 📦** out-of-the-box** deployment experience, including image classification, target detection, image segmentation, face detection, face recognition, human key point recognition, text recognition , semantic understanding and other multi-tasks, to meet the industrial deployment needs of developers with multiple scenarios, multiple hardware, and multiple platforms.
