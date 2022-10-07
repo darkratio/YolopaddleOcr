@@ -9,7 +9,6 @@
     <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/releases"><img src="https://img.shields.io/github/v/release/PaddlePaddle/Yolov7paddleOcr?color=ffa"></a>
     <a href=""><img src="https://img.shields.io/badge/python-3.7+-aff.svg"></a>
     <a href=""><img src="https://img.shields.io/badge/os-linux%2C%20win%2C%20mac-pink.svg"></a>
-    <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/graphs/contributors"><img src="https://img.shields.io/github/contributors/PaddlePaddle/Yolov7paddleOcr?color=9ea"></a>
     <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/commits"><img src="https://img.shields.io/github/commit-activity/m/PaddlePaddle/Yolov7paddleOcr?color=3af"></a>
     <a href="https://pypi.org/project/Yolov7paddleOcr-python/"><img src="https://img.shields.io/pypi/dm/Yolov7paddleOcr-python?color=9cf"></a>
     <a href="https://github.com/PaddlePaddle/Yolov7paddleOcr/issues"><img src="https://img.shields.io/github/issues/PaddlePaddle/Yolov7paddleOcr?color=9cc"></a>
